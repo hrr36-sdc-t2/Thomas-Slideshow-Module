@@ -24,6 +24,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.1.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "request": "^2.88.0",
@@ -35,9 +36,10 @@
   },
   "scripts": {
     "start": "node ./server/index.js",
-    "build-sass": "sass --watch ./client/src/styles/:./client/dist/styles/",
-    "build-webpack": "webpack --mode development --watch",
-    "build-webpack-production": "webpack --mode production",
+    "server": "nodemon ./server/index.js",
+    "sass": "sass --watch ./client/src/styles/:./client/dist/styles/",
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
     "test": "jest --forceExit",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run"
