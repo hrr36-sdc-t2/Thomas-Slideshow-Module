@@ -1,13 +1,12 @@
+const mongoose = require('mongoose');
 
-const knexConfig = require('../knexfile');
-let env = 'development';
-let knex = require('knex')(knexConfig[env]);
+const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost/sdc2';
+mongoose.connect(CONNECTION_URI, { useNewUrlParser: true, poolSize: 10 });
 
-module.exports = knex;
+const listingSchema = mongoose.Schema({
+  listingId: Number
+});
 
-module.exports.initialize = function () {
-  knex.migrate.latest([knexConfig])
-  .then(function() {
-    return knex.seed.run();
-  })
-}
+const Listing = mongoose.model('Listing', listingSchema);
+
+module.exports = Listing;
