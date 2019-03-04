@@ -9,14 +9,14 @@ class PhotoModule extends React.Component {
       images: null
     };
   }
- 
+
 // Seed currently contains listingIds from 1-100 - make sure to use valid endpoint (e.g. "http://localhost:3000/rooms/3/").
-  componentDidMount() { 
+  componentDidMount() {
     let listingId = window.location.pathname.split('/')[2];
     this.setSizeByScreen();
     fetch (`/rooms/${listingId}/images`)
       .then(res => res.json())
-      .then(images => this.setState({images}));
+      .then(data => this.setState({ images: data[0].images }));
   };
 
   setSizeByScreen() {
@@ -82,7 +82,7 @@ class PhotoModule extends React.Component {
     let dummy = document.createElement('input'),
     text = window.location.href,
     modal = document.querySelector('.modal-body');
-  
+
     modal.appendChild(dummy);
     dummy.value = text;
     dummy.select();
@@ -104,15 +104,15 @@ class PhotoModule extends React.Component {
       hideBtn.innerHTML = 'Hide photo list<i class="fas fa-sort-down"></i>';
     }
   }
- 
+
   renderImgGrid() {
     if (this.state.images) {
       return (<
-        PhotoGrid 
-        images={this.state.images} 
-        selectActivePhoto={this.selectActivePhoto} 
-        scrollToActive={this.scrollToActive} 
-        setCaption={this.setCaption} 
+        PhotoGrid
+        images={this.state.images}
+        selectActivePhoto={this.selectActivePhoto}
+        scrollToActive={this.scrollToActive}
+        setCaption={this.setCaption}
         copyUrl={this.copyUrl}
         hideFilmstrip={this.hideFilmstrip}
       />)
