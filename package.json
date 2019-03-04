@@ -48,7 +48,7 @@
     "url": "git+https://github.com/airbnbers/Thomas-Slideshow-Module.git"
   },
   "author": "Thomas Hsu",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/airbnbers/Thomas-Slideshow-Module/issues"
   },
