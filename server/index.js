@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser')
 
 const rooms = require('./rooms.js');
 const images = require('./images.js');
 
 const port = process.env.PORT || 3001;
+
+app.use(cors());
+app.use(bodyParser.json());
 
 app.use('/rooms/:listingId/', express.static(__dirname + '/../client/dist'));
 app.use('/favicon.ico', express.static(__dirname + '/../client/dist/favicon.ico'));
