@@ -12,7 +12,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/rooms/:listingId/', express.static(__dirname + '/../client/dist'));
-app.use('/favicon.ico', express.static(__dirname + '/../client/dist/favicon.ico'));
 
 app.use('/rooms', rooms);
 app.use('/images', images);
