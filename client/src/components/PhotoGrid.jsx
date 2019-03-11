@@ -152,7 +152,7 @@ const PhotoGrid = ({images, selectActivePhoto, scrollToActive, setCaption, copyU
                   <div className="filmstrip">
                     <ol className="carousel-indicators">
                       <li data-target="#carousel-custom" data-slide-to="0" className="thumbnail active">
-                        <img src={`/images/${images[0].imgPath}`} alt="images[0].description" className="img-responsive" onClick={() => setCaption()}/>
+                        <img src={`/images/${images[0].imgPath}`} alt={images[0].description} className="img-responsive" onClick={() => setCaption()}/>
                         <p className="invisible-caption" hidden>{1}/{images.length}: {images[0].description}</p>
                       </li>
                       {images.slice(1).map((image, i) => <SlideshowThumb image={image} imgOrder={i + 1} key={i} setLength={images.length} setCaption={setCaption}/>)}
