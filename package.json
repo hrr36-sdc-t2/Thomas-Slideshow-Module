@@ -7,7 +7,8 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.15.0",
-    "mongoose": "^5.4.16"
+    "mongoose": "^5.4.16",
+    "newrelic": "^5.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

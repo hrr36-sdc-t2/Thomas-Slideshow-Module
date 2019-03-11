@@ -1,7 +1,17 @@
 const mongoose = require('mongoose');
 
-const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost/sdc2';
-mongoose.connect(CONNECTION_URI, { useNewUrlParser: true, poolSize: 10 });
+const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/sdc2';
+
+const connectMongo = () => {
+  mongoose
+    .connect(CONNECTION_URI, { useNewUrlParser: true, poolSize: 10 })
+    .catch(() => {
+      console.log('MongoDB connection failed, retrying in 5 seconds.');
+      setTimeout(connectMongo, 5000);
+    });
+};
+
+connectMongo();
 
 const slideSchema = mongoose.Schema({
   imgPath: Number,

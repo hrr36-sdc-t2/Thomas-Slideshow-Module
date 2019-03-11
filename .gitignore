@@ -1,3 +1,6 @@
 node_modules/
 client/dist/bundle.js
 images/
+newrelickey.js
+newrelic_agent.log
+artillery.yml
