@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost/sdc2';
+const CONNECTION_URI = `mongodb://${process.env.DB_URI || 'localhost'}/sdc2`;
 
 const connectMongo = () => {
   mongoose

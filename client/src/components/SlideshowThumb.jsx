@@ -2,7 +2,7 @@ import React from 'react';
 
 const SlideshowThumb = ({image, imgOrder, setLength, setCaption}) => (
   <li data-target="#carousel-custom" data-slide-to={image.imgOrder} className="thumbnail">
-    <img src={`/images/${image.imgPath}`} alt="image.description" className="img-responsive" onClick={() => {event.path[0].scrollIntoView({behavior: "smooth", inline: "center"}); setCaption()}}/>
+    <img src={`http://34.217.82.109:2999/images/${image.imgPath}`} alt="image.description" className="img-responsive" onClick={() => {event.path[0].scrollIntoView({behavior: "smooth", inline: "center"}); setCaption()}}/>
     <p className="invisible-caption">{imgOrder + 1}/{setLength}: {image.description}</p>
   </li>
 )
