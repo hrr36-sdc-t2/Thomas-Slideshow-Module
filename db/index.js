@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CONNECTION_URI = 'mongodb://35.155.224.215:27017/sdc2';
+const CONNECTION_URI = 'mongodb://172.31.24.210:27017/sdc2';
 
 const connectMongo = () => {
   mongoose
