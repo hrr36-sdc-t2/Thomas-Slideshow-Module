@@ -14,7 +14,7 @@ class PhotoModule extends React.Component {
   componentDidMount() {
     let listingId = window.location.pathname.split('/')[2];
     this.setSizeByScreen();
-    fetch (`/rooms/${listingId}/images`)
+    fetch (`http://54.213.199.225:3001/rooms/${listingId}/images`)
       .then(res => res.json())
       .then(data => this.setState({ images: data[0].images }));
   };
