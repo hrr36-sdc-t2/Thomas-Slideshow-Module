@@ -1,8 +1,9 @@
 import React from 'react';
+import ip from './ip';
 
 const SlideshowImg = ({image}) => (
   <div className="carousel-item">
-    <img className="d-block" src={`http://35.155.224.215:2999/images/${image.imgPath}`} alt={image.description}/>
+    <img className="d-block" src={`http://${ip}:2999/images/${image.imgPath}`} alt={image.description}/>
   </div>
 )
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import SlideshowImg from './SlideshowImg.jsx';
 import SlideshowThumb from './SlideshowThumb.jsx';
+import ip from './ip';
 
 const PhotoGrid = ({images, selectActivePhoto, scrollToActive, setCaption, copyUrl, hideFilmstrip}) => (
   <div className="img-grid container-fluid">
@@ -30,23 +31,23 @@ const PhotoGrid = ({images, selectActivePhoto, scrollToActive, setCaption, copyU
     {/* {--PHOTOS--} */}
     <div className="photogrid row h-100">
       {/* {Main image} */}
-      <div className="col"><img id="image1" src={`http://35.155.224.215:2999/images/${images[0].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/></div>
+      <div className="col"><img id="image1" src={`http://${ip}:2999/images/${images[0].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/></div>
       {/* {Subimages for sizes sm and up} */}
       <div className="col-sm-4 col-lg-3 border-left-0 d-none d-sm-block">
         <div className="row h-50 border-top-0 border-bottom-0 border-left-0">
-          <img id="image2" src={`http://35.155.224.215:2999/images/${images[1].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
+          <img id="image2" src={`http://${ip}:2999/images/${images[1].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
         </div>
         <div className="row h-50 border-bottom-0 border-left-0">
-          <img id="image3" src={`http://35.155.224.215:2999/images/${images[2].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
+          <img id="image3" src={`http://${ip}:2999/images/${images[2].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
         </div>
       </div>
       {/* {Subimages for sizes lg and up} */}
       <div className="col-lg-3 border-0 d-none d-lg-block">
         <div className="row h-50 border-bottom-0">
-          <img id="image4" src={`http://35.155.224.215:2999/images/${images[3].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
+          <img id="image4" src={`http://${ip}:2999/images/${images[3].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
         </div>
         <div className="row h-50">
-          <img id="image5" src={`http://35.155.224.215:2999/images/${images[4].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
+          <img id="image5" src={`http://${ip}:2999/images/${images[4].imgPath}`} onClick={() => {selectActivePhoto(); setCaption()}}/>
         </div>
       </div>
     </div>
@@ -129,7 +130,7 @@ const PhotoGrid = ({images, selectActivePhoto, scrollToActive, setCaption, copyU
               <div className="carousel-inner" role="listbox">
                 <div className="image-arrow-wrapper">
                   <div className="carousel-item active">
-                    <img className="d-block" src={`http://35.155.224.215:2999/images/${images[0].imgPath}`} alt={images[0].description}/>
+                    <img className="d-block" src={`http://${ip}:2999/images/${images[0].imgPath}`} alt={images[0].description}/>
                   </div>
                   {images.slice(1).map((image, i) => <SlideshowImg image={image} key={i} setLength={images.length}/>)}
                   {/* {Slideshow carousel controls} */}
@@ -152,7 +153,7 @@ const PhotoGrid = ({images, selectActivePhoto, scrollToActive, setCaption, copyU
                   <div className="filmstrip">
                     <ol className="carousel-indicators">
                       <li data-target="#carousel-custom" data-slide-to="0" className="thumbnail active">
-                        <img src={`http://35.155.224.215:2999/images/${images[0].imgPath}`} alt={images[0].description} className="img-responsive" onClick={() => setCaption()}/>
+                        <img src={`http://${ip}:2999/images/${images[0].imgPath}`} alt={images[0].description} className="img-responsive" onClick={() => setCaption()}/>
                         <p className="invisible-caption" hidden>{1}/{images.length}: {images[0].description}</p>
                       </li>
                       {images.slice(1).map((image, i) => <SlideshowThumb image={image} imgOrder={i + 1} key={i} setLength={images.length} setCaption={setCaption}/>)}
