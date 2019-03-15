@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CONNECTION_URI = `mongodb://${process.env.DB_URI || 'localhost'}/sdc2`;
+const CONNECTION_URI = 'mongodb://35.155.224.215:27017/sdc2';
 
 const connectMongo = () => {
   mongoose
@@ -11,7 +11,7 @@ const connectMongo = () => {
     })
     .then(() => console.log('MongoDB connection established.'))
     .catch(err => {
-      console.log(err);
+      console.log(CONNECTION_URI);
       console.log('MongoDB connection failed, retrying in 5 seconds.');
       setTimeout(connectMongo, 5000);
     });
